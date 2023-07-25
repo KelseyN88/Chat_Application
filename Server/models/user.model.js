@@ -2,13 +2,10 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
     // columns for out document
-    firstName: {
-        type: String, // What datatype this is expecting.
-        required: true, // default is false
-    },
-    lastName: {
+    username: {
         type: String,
         required: true,
+        unique: true
     },
     email: {
         type: String,
@@ -19,7 +16,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-
 });
 
 module.exports = mongoose.model('User', UserSchema);
