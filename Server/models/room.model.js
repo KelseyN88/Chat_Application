@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const RoomSchema = new mongoose.Schema({
-    // columns for out document
+    
     title: {
         type: String,
         required: true,
@@ -15,7 +15,8 @@ const RoomSchema = new mongoose.Schema({
         type: Array,
         
     },
-    ownerId: {
+
+    owner_id: {
         type: String,
     },
 

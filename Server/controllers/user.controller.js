@@ -20,7 +20,7 @@ router.post('/signup', async (req, res) => {
         const newUser = await user.save(); // writes/ saves user to database. Returns
         //a response and this is why we need an "await"
 
-        const token = jwt.sign({id: "newUser._id"}, SECRET, {expiresIn: "1 day"})
+        const token = jwt.sign({id: user._id}, SECRET, {expiresIn: "1 day"}) // ***removed quotes from this**** and changed newUser to user
 
         res.status(200).json({
             user: newUser,
@@ -46,17 +46,15 @@ router.post('/login', async (req, res) => {
         //*2. Check database to see if email supplied exists.
         const user = await User.findOne({email: email}) //key of object: does it match our email from req.body
         // A MongoDB method that accepts a query as an argument. Returns an instance of a document that matches
-        // console.log(user);
        
         //*3. If email exists, consider if passwords match.
         const passwordMatch = await bcrypt.compare(password, user.password); // returns a true/false value
-        // compare(string, hashed)
-        console.log(passwordMatch)
+
         if(!user || !passwordMatch) throw new Error('Email or Password does not match')
 
 
         //*4. After verified, provide a jwt (token).
-        const token = jwt.sign({id: "user._id"}, SECRET, {expiresIn: "1 day"})
+        const token = jwt.sign({id: user._id}, SECRET, {expiresIn: "1 day"})
 
 
         //*5. Provide a response

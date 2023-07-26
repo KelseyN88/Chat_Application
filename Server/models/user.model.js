@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    // columns for out document
+   
     username: {
         type: String,
         required: true,
@@ -15,7 +15,8 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    
 });
 
 module.exports = mongoose.model('User', UserSchema);
