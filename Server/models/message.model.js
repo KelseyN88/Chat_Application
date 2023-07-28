@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const MessageSchema = new mongoose.Schema({
-    // columns for out document
+    
     date: {
-        type: String, // What datatype this is expecting.
-        required: true, // default is false
+        type: String, 
+        required: true, 
     },
     text: {
         type: String,

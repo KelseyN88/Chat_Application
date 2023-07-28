@@ -47,7 +47,7 @@ router.post('/', validateSession, async (req, res) => {
 router.get('/:id', async (req,res) => {
     try {
         const { id } = req.params;
-        const getRoom = await Room.findOne({_id: id}); // changed roomModel to Room
+        const getRoom = await Room.findOne({_id: id});
 
         getRoom ?
             res.status(200).json({
@@ -84,38 +84,7 @@ const getAllRooms = await Room.find()
 })
 
 
-
-//TODO GET All by Genre - read ---
-router.get('/messages/:messages', async (req,res) => {
-    try {
-
-        const { messages } = req.params;
-        let buildWord;
-
-        if(messages) {
-            for(let i = 0; i < genre.length; i++)
-            i === 0 ? 
-                buildWord = genre[i].toUpperCase() :
-                buildWord += genre[i].toLowerCase();
-        }
-
-        const getRooms = await Room.find({genre: buildWord})
-
-        getRooms.length > 0 ?
-            res.status(200).json({
-                getRooms
-            }) :
-            res.status(404).json({
-                message: `Whoopsie, no rooms found...`
-            })
-
-    } catch (err) {
-        errorResponse(res, err)
-        
-    }
-})
-
-//TODO PATCH One - update ---
+//TODO PATCH One - Make Updates
 router.patch('/:id', validateSession, async (req, res) => {
     try {
         
@@ -147,7 +116,7 @@ router.patch('/:id', validateSession, async (req, res) => {
 })
 
 
-//TODO DELETE One - delete ---
+//TODO DELETE One - delete
 router.delete('/:id', validateSession, async (req, res) => {
     try {
         //1. Capture ID

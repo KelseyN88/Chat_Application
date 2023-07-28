@@ -17,10 +17,9 @@ router.post('/signup', async (req, res) => {
             password: bcrypt.hashSync(req.body.password, 13),
         })
 
-        const newUser = await user.save(); // writes/ saves user to database. Returns
-        //a response and this is why we need an "await"
+        const newUser = await user.save();
 
-        const token = jwt.sign({id: user._id}, SECRET, {expiresIn: "1 day"}) // ***removed quotes from this**** and changed newUser to user
+        const token = jwt.sign({id: user._id}, SECRET, {expiresIn: "1 day"});
 
         res.status(200).json({
             user: newUser,
