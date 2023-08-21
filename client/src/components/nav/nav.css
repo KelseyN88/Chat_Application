@@ -1,0 +1,23 @@
+.brand {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 1em;
+    padding: 1rem;
+    border-bottom: 2px solid #ffa737;
+    margin-bottom: 1em;
+    margin-top: 0px;
+    background-color: #343330;
+    /* background-color: #646e68; */
+    font-family: 'Amatic SC';
+    font-size: 3rem;
+}
+
+h1 {
+    /* color:  #c0da74; */
+    /* color:  #a59132; */
+    color:  #b7b868;
+   
+
+}
+
+

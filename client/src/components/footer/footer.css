@@ -1,0 +1,14 @@
+.footer {
+    text-align: center;
+    position: fixed-bottom;
+    /* color: white; */
+    background-color: #343330;
+    /* background-color: #646e68;  */
+    margin: auto;
+}
+
+h6 {
+    color: #ffa737;
+    padding: 1rem;
+    font-size: small;
+}
