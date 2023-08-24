@@ -1,14 +1,14 @@
 .footer {
     text-align: center;
-    position: fixed-bottom;
-    /* color: white; */
+    position: fixed;;
     background-color: #343330;
-    /* background-color: #646e68;  */
-    margin: auto;
-}
-
-h6 {
+    margin: 0;
+    flex-shrink: 0;
+    bottom: 0;
+    width: 100%;
     color: #ffa737;
     padding: 1rem;
     font-size: small;
+    font-family: 'Amatic SC';
+    font-size: large;
 }

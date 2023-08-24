@@ -11,7 +11,7 @@ const message = require('./controllers/message.controller')
 const mongoose = require('mongoose') // used from node_modules
 const MONGO = process.env.MONGO // connection variable from .env
 
-
+const cors = require('cors');
 
 
 
@@ -25,6 +25,7 @@ db.once("open", () => log(`Connected: ${MONGO}`));
 
 //ROUTES
 app.use(express.json())
+app.use(cors())
 app.use('/user', user)
 app.use('/room', room)
 app.use('/message', message)

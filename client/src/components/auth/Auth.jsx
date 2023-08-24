@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
-import Login from './login/Login';
-import Signup from './signup/Signup';
-import { Button, Col, Row } from 'reactstrap';
+import React, { useState } from "react";
+import Login from "./login/Login";
+import Signup from "./signup/Signup";
+import { Button, Col, Container, Row } from "reactstrap";
 
-function Auth() {
+function Auth(props) {
+  const [button, setButton] = useState("Signup");
 
-    // ADD SWAPFORM HERE
+  const swapForm = () => {
+    button === "Login" ? setButton("Signup") : setButton("Login");
+  };
+
+  const displayForm = () => {
+    return button === "Login" ? (
+      <Row>
+        <Col md="6">
+          <Signup updateToken={props.updateToken} />
+        </Col>
+      </Row>
+    ) : (
+      <Row>
+        <Col md="6">
+          <Login />
+        </Col>
+      </Row>
+    );
+  };
 
   return (
     <>
-   <Row>
-    <Col>
-    <Signup />
-    </Col>
-   </Row>
-   <Row>
-    <Col>
-    <Login />
-    </Col>
-   </Row>
-    
+      <Button onClick={swapForm} color="dark">
+        {button}
+      </Button>
+      <Container>{displayForm()}</Container>
     </>
-  )
+  );
 }
 
-export default Auth
+export default Auth;

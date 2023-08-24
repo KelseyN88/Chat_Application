@@ -2,14 +2,14 @@ import React from 'react'
 import FullButton from '../../buttons/FullButton';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
 
-    // const emailRef = useRef()
-    // const passwordRef = useRef()
+    // const emailRef = useRef();
+    // const passwordRef = useRef();
     
-    // const navigate = useNavigate()
+    // const navigate = useNavigate();
 
     // const handleSubmit = async (e) => {
     //     e.preventDefault()
@@ -22,7 +22,7 @@ function Login(props) {
     //         email, password
     //     })
 
-    //     const url = 'http://localhost:4005/user/login'
+    //     // const url = 'http://localhost:4008/user/login'
 
     //     try {
     //         const res = await fetch(url, {
@@ -34,6 +34,7 @@ function Login(props) {
     //         })
 
     //         const data = await res.json();
+    //         console.log(data.token);
 
     //         if(data.message === 'Success!') {
     //             updateToken(data.token)
