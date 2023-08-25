@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import FullButton from '../../buttons/FullButton'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -11,16 +11,15 @@ function Signup(props) {
     const emailRef = useRef();
     const passwordRef = useRef();
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault()
-        // console.log('username: ', usernameRef.current.value);
 
         const username = usernameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        // console.log(username);
+        
         
 
         let bodyObj = JSON.stringify({
@@ -28,7 +27,7 @@ function Signup(props) {
             email: email,
             password: password
         })
-        // console.log(bodyObj);
+        
 
         const url = `http://localhost:4008/user/signup`;
         const headers = new Headers();
@@ -44,12 +43,14 @@ function Signup(props) {
             const data = await response.json();
             console.log(data);
 
-            // if(data.message === "Success!") {
-            //     props.updateToken(data.token)
-            //     navigate('/room/')
-            // } else {
-            //     alert(data.message)
-            // }
+            props.updateToken(data.token)
+
+            if(data.message === "Success!") {
+                props.updateToken(data.token)
+                navigate('/room/')
+            } else {
+                alert(data.message)
+            }
 
         } catch (err) {
             console.log(err.message);

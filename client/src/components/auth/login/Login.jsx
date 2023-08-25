@@ -1,61 +1,62 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import FullButton from '../../buttons/FullButton';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-import { useRef } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Login(props) {
+function Login({updateToken}) {
 
-    // const emailRef = useRef();
-    // const passwordRef = useRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
     
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
 
-    //     const email = emailRef.current.value;
-    //     const password = passwordRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        
 
-    //     //needs to match postman body
-    //     let body = JSON.stringify({
-    //         email, password
-    //     })
+        //needs to match postman body
+        let body = JSON.stringify({
+            email, password
+        })
 
-    //     // const url = 'http://localhost:4008/user/login'
+        const url = 'http://localhost:4008/user/login'
 
-    //     try {
-    //         const res = await fetch(url, {
-    //             method: 'POST',
-    //             headers: new Headers({
-    //                 "Content-Type": 'application/json' // thing to append to
-    //             }),
-    //             body:body
-    //         })
+        try {
+            const res = await fetch(url, {
+                method: 'POST',
+                headers: new Headers({
+                    "Content-Type": 'application/json' // thing to append to
+                }),
+                body: body
+            })
 
-    //         const data = await res.json();
-    //         console.log(data.token);
+            const data = await res.json();
+           
 
-    //         if(data.message === 'Success!') {
-    //             updateToken(data.token)
-    //             navigate('/room/') // navigate to all rooms?
-    //         } else {
-    //             alert(data.message)
-    //         }
+            if(data.message === 'Success!') {
+                updateToken(data.token)
+                navigate('/room/') // navigate to all rooms?
+            } else {
+                alert(data.message)
+            }
             
-    //     } catch (err) {
-    //         console.log(err.message);
-    //     }
-    // }
+        } catch (err) {
+            console.log(err.message);
+        }
+    }
 
   return (
     <>
     <h2>Login</h2>
-    <Form>
+    <Form onSubmit={handleSubmit}>
     <FormGroup>
         <Label>Email</Label>
             <Input
-            // innerRef={emailRef}
+            innerRef={emailRef}
             type='email'
             placeholder='email'
             />
@@ -64,7 +65,7 @@ function Login(props) {
     <FormGroup>
         <Label>Password</Label>
             <Input
-            // innerRef={passwordRef}
+            innerRef={passwordRef}
             type='password'
             placeholder='Enter Password'
             />

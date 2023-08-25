@@ -15,12 +15,15 @@ function Auth(props) {
       <Row>
         <Col md="6">
           <Signup updateToken={props.updateToken} />
+          
         </Col>
       </Row>
     ) : (
       <Row>
         <Col md="6">
-          <Login />
+          <Login
+            updateToken={props.updateToken}
+          />
         </Col>
       </Row>
     );
