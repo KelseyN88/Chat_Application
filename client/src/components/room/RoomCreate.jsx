@@ -36,7 +36,7 @@ function RoomCreate(props) {
         try {
             const res = await fetch(url, requestOption);
             const data = await res.json();
-            console.log(data);
+            props.fetchRooms();
             
         } catch (err) {
             console.log(err.message);
