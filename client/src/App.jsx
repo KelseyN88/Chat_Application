@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Logout from './components/auth/logout/Logout';
 import RoomIndex from './components/room/RoomIndex';
+import RoomEdit from './components/room/RoomEdit';
 
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
   <Route
     path='/room/'
     element={<RoomIndex token={sessionToken}/>}
+  />
+  <Route 
+    path='/room/update/:id'
+    element={<RoomEdit token={sessionToken}/>}
   />
 </Routes>
 

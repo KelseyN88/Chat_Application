@@ -1,9 +1,12 @@
 import React from 'react'
 import { Table, Button } from 'reactstrap'
 import { baseURL } from '../../environments';
+import { useNavigate } from 'react-router-dom';
 
 function RoomTable(props) {
     // console.log(props.rooms);
+
+    const navigate = useNavigate();
 
     async function deleteRoom(id) {
         const url = `${baseURL}/room/${id}`
@@ -42,9 +45,6 @@ function RoomTable(props) {
         Description
       </th>
       <th>
-        Messages
-      </th>
-      <th>
         Edit / Delete
       </th>
     </tr>
@@ -59,10 +59,13 @@ function RoomTable(props) {
                     {/* <td>{room.messages}</td> */}
                     <td>
                         <Button
+                        color='warning'
+                        onClick={() => navigate(`/room/update/${room._id}`)}
+                        >Edit</Button>
+                        <Button
                             onClick={() => deleteRoom(room._id)}
                             color='danger'
-                        >Delete
-                        </Button>
+                        >Delete</Button>
 
                     </td>
                 </tr>
