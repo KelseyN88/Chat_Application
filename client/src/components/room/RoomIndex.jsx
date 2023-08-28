@@ -24,7 +24,6 @@ function RoomIndex(props) {
             const res = await fetch(url, requestOption);
             const data = await res.json();
 
-            // console.log(data);
             setRooms(data.getAllRooms)
 
         } catch (err) {
@@ -43,17 +42,17 @@ function RoomIndex(props) {
     <>  
         <Container>
             <Row>
-                <Col md='4'>
-                    <RoomCreate
-                    token={props.token}
-                    fetchRooms={fetchRooms}
-                    />
-                </Col>
-                <Col md='8'>
+            <Col md='4'>
                     <RoomTable
                     token={props.token}
                     fetchRooms={fetchRooms}
                     rooms={rooms}
+                    />
+                </Col>
+                <Col md='8'>
+                    <RoomCreate
+                    token={props.token}
+                    fetchRooms={fetchRooms}
                     />
                 </Col>
             </Row>

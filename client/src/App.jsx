@@ -13,8 +13,6 @@ import RoomEdit from './components/room/RoomEdit';
 function App() {
 
   const [sessionToken, setSessionToken] = useState('');
-
-  console.log('Token: ', sessionToken);
   
 
   const updateToken = newToken => {

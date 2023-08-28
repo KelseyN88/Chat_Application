@@ -30,7 +30,6 @@ function RoomEdit(props) {
             });
 
             const data = await res.json();
-            // console.log(data);
             const { title, description } = data.getRoom;
 
             setTitle(title)

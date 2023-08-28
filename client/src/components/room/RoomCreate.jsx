@@ -46,7 +46,7 @@ function RoomCreate(props) {
     // Title, Description, Messages?
   return (
     <>
-        <h1>Add Room</h1>
+        <h1>Create A Crypt</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Title</Label>
@@ -56,7 +56,7 @@ function RoomCreate(props) {
                 />
             </FormGroup>
             <FormGroup>
-                <Label>Description</Label>
+                <Label>Descryption</Label>
                 <Input type='select'
                         innerRef={descriptionRef}
                 >
@@ -68,7 +68,7 @@ function RoomCreate(props) {
                 <Input />
             </FormGroup> */}
             <FullButton>
-                <Button color='success'>Add Room</Button>
+                <Button color='success'>Create Crypt</Button>
             </FullButton>
 
         </Form>

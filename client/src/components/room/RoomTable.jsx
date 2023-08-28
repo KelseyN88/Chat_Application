@@ -4,7 +4,6 @@ import { baseURL } from '../../environments';
 import { useNavigate } from 'react-router-dom';
 
 function RoomTable(props) {
-    // console.log(props.rooms);
 
     const navigate = useNavigate();
 
@@ -34,15 +33,15 @@ function RoomTable(props) {
 
   return (
     <>
-   <h1>List of Rooms</h1>
-   <Table hover striped>
+   <h1>Available Crypts</h1>
+   <Table hover striped dark>
   <thead>
     <tr>
       <th>
         Title
       </th>
       <th>
-        Description
+        Descryption
       </th>
       <th>
         Edit / Delete
